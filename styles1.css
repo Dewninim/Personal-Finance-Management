@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+header {
+    background-color: #1c6799;
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 40%;
+    background-color: #444242;
+    padding: 1rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 0.8rem 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #e2d9d9;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 0.5rem;
+}
+
+.main-content {
+    width: 80%;
+    padding: 1rem;
+}
+
+.card {
+    background-color: #0d2a42;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    
+
+.card h2 {
+    margin-top: 0;
+    
+}
+
+.card-content {
+    margin-top: 1rem;
+    
+}
+
+.transaction-form-container {
+    background-color: #eaf4f4;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.transaction-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-form-container form label {
+    margin-top: 0.5rem;
+}
+
+.transaction-form-container form input,
+.transaction-form-container form select {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+.progress-bar {
+    margin-top: 1rem;
+}
+
+.progress {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+#history-list,
+#payment-list {
+    list-style: none;
+    padding: 0;
+}
+
+#history-list li,
+#payment-list li {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+}
+
+
+#payment-list li {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+    color: #FF5722;
+}
+
+.btn0{
+     
+    position: absolute;
+    top: 350px;
+    left: 200px;
+    display: inline-block;
+    padding: 10px 80px;
+    text-decoration: none;
+    background-color: #26c448;
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+
+}

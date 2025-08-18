@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Dashboard</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Personal Finance Dashboard</h1>
+        </header>
+
+        <style>
+           
+            .calculator-button1 {
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                background-image: linear-gradient(to bottom right,white,rgb(168, 7, 120),rgb(235, 43, 187),white);                
+                color: rgb(212, 206, 206);
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: background-color 0.3s;
+            }
+    
+            .calculator-button:hover {
+                background-color: #e254b8;
+            }
+        </style>
+         <h2><a class="calculator-button1" href="index.html">Logout</a></h2>
+
+        <style>
+           
+            .calculator-button {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background-image: linear-gradient(to bottom right,white,rgb(168, 7, 120),rgb(235, 43, 187),white);                
+                color: rgb(233, 230, 230);
+                
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: background-color 0.3s;
+            }
+    
+            .calculator-button:hover {
+                background-color: #e254b8;
+            }
+        </style>
+         <h2><a class="calculator-button" href="calculator.html">Calculator</a></h2>
+
+         
+
+        <div class="container">
+            <aside class="sidebar">
+                <nav>
+                    <ul><h2>
+                        <li><a href="#account-summary"><i class="fas fa-wallet"></i> Account Summary </a></li><br>
+                        <li><a href="#expense-tracking"><i class="fas fa-chart-line"></i> Expense Tracking</a></li><br>
+                        <li><a href="#budget-overview"><i class="fas fa-receipt"></i> Budget Overview</a></li><br>
+                        <li><a href="#savings-goals"><i class="fas fa-piggy-bank"></i> Savings Goals</a></li><br>
+                        <li><a href="#transaction-history"><i class="fas fa-history"></i> Transaction History</a></li><br>
+                        <li><a href="#add-transaction"><i class="fas fa-plus"></i> Add Transaction</a></li>
+                    </h2>  
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <section id="account-summary" class="card">
+                    <h2>Account Summary</h2>
+                    <div class="card-content">
+                        <canvas id="account-summary-chart"></canvas>
+                        <p>Bank Accounts: <span id="bank-accounts">$5,000</span></p>
+                        <p>Credit Cards: <span id="credit-cards">$1,200</span></p>
+                        <p>Loans: <span id="loans">$15,000</span></p>
+                        <p>Investments: <span id="investments">$10,000</span></p>
+                    </div>
+                </section>
+                <section id="expense-tracking" class="card">
+                    <h2>Expense Tracking</h2>
+                    <div class="card-content">
+                        <canvas id="expense-tracking-chart"></canvas>
+                        <ul id="expense-list">
+                            <li>Groceries: <span id="groceries">$200</span></li>
+                            <li>Utilities: <span id="utilities">$100</span></li>
+                            <li>Entertainment: <span id="entertainment">$50</span></li>
+                            
+                        </ul>
+                    </div>
+                </section>
+                <section id="budget-overview" class="card">
+                    <h2>Budget Overview</h2>
+                    <div class="card-content">
+                        <canvas id="budget-overview-chart"></canvas>
+                        <p>Monthly Budget: <span id="monthly-budget">$2,000</span></p>
+                        <p>Spent: <span id="spent">$1,350</span></p>
+                    </div>
+                </section>
+                <section id="savings-goals" class="card">
+                    <h2>Savings Goals</h2>
+                    <div class="card-content">
+                        <div class="progress-bar">
+                            <label>Emergency Fund</label>
+                            <div class="progress">
+                                <div class="progress-bar-fill" id="emergency-fund-progress" style="width: 50%;"></div>
+                            </div>
+                            <p id="emergency-fund">$5,000 / $10,000</p>
+                        </div>
+                        <div class="progress-bar">
+                            <label>Vacation Fund</label>
+                            <div class="progress">
+                                <div class="progress-bar-fill" id="vacation-fund-progress" style="width: 50%;"></div>
+                            </div>
+                            <p id="vacation-fund">$1,500 / $3,000</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="transaction-history" class="card">
+                    <h2>Transaction History</h2>
+                    <div class="card-content">
+                        <ul id="history-list">
+                            <!-- Transactions will be dynamically added here -->
+                        </ul>
+                    </div>
+                </section>
+           
+                <section id="add-transaction" class="card">
+                    <h2>Add Transaction</h2>
+                    <div class="transaction-form-container">
+                        <form id="transaction-form">
+                            <label for="type">Type:</label>
+                            <select id="type" name="type">
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                                <option value="loan">Loan</option>
+                                <option value="saving">Saving</option>
+                            </select>
+                            <label for="amount">Amount:</label>
+                            <input type="number" id="amount" name="amount" required>
+                            <label for="description">Description:</label>
+                            <input type="text" id="description" name="description">
+                            <button type="submit" class="btn-submit">Add Transaction</button>
+                        </form>
+                    </div>
+                </section>
+
+
+                
+            </main>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <script>
+        let bankAccounts = 5000;
+        let creditCards = 1200;
+        let loans = 15000;
+        let investments = 10000;
+        let expenses = {
+            groceries: 200,
+            utilities: 100,
+            entertainment: 50,
+            payments: 0
+        };
+        let monthlyBudget = 20000;
+        let spent = 1350;
+        let emergencyFund = { current: 5000, goal: 10000 };
+        let vacationFund = { current: 1500, goal: 3000 };
+        let transactionHistory = [];
+        let payments = [];
+
+        // Account Summary Chart
+        const ctx1 = document.getElementById('account-summary-chart').getContext('2d');
+        const accountSummaryChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Bank Accounts', 'Credit Cards', 'Loans', 'Investments'],
+                datasets: [{
+                    data: [bankAccounts, creditCards, loans, investments],
+                    backgroundColor: ['#4CAF50', '#FFC107', '#F44336', '#2196F3']
+                }]
+            }
+        });
+
+        // Expense Tracking Chart
+        const ctx2 = document.getElementById('expense-tracking-chart').getContext('2d');
+        const expenseTrackingChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(expenses),
+                datasets: [{
+                    label: 'Expenses',
+                    data: Object.values(expenses),
+                    backgroundColor: '#FF5722'
+                }]
+            }
+        });
+
+        // Budget Overview Chart
+        const ctx3 = document.getElementById('budget-overview-chart').getContext('2d');
+        const budgetOverviewChart = new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Spent', 'Remaining'],
+                datasets: [{
+                    data: [spent, monthlyBudget - spent],
+                    backgroundColor: ['#00BCD4', '#B0BEC5']
+                }]
+            }
+        });
+
+        // Progress Bars
+        const updateProgressBars = () => {
+            const emergencyFundProgress = document.getElementById('emergency-fund-progress');
+            const vacationFundProgress = document.getElementById('vacation-fund-progress');
+            emergencyFundProgress.style.width = `${(emergencyFund.current / emergencyFund.goal) * 100}%`;
+            vacationFundProgress.style.width = `${(vacationFund.current / vacationFund.goal) * 100}%`;
+
+            document.getElementById('emergency-fund').textContent = `$${emergencyFund.current} / $${emergencyFund.goal}`;
+            document.getElementById('vacation-fund').textContent = `$${vacationFund.current} / $${vacationFund.goal}`;
+        };
+        updateProgressBars();
+
+        // Update History
+        const updateHistory = () => {
+            const historyList = document.getElementById('history-list');
+            historyList.innerHTML = '';
+            transactionHistory.forEach((transaction, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `#${index + 1} - ${transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)}: $${transaction.amount} - ${transaction.description}`;
+                historyList.appendChild(listItem);
+            });
+        };
+
+        
+        // Handle Form Submission
+        document.getElementById('transaction-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const type = document.getElementById('type').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const description = document.getElementById('description').value;
+
+            if (type === 'income') {
+                bankAccounts += amount;
+                document.getElementById('bank-accounts').textContent = `$${bankAccounts}`;
+                accountSummaryChart.data.datasets[0].data = [bankAccounts, creditCards, loans, investments];
+                accountSummaryChart.update();
+
+                spent += amount;
+                budgetOverviewChart.data.datasets[0].data = [spent, monthlyBudget - spent];
+                budgetOverviewChart.update();
+            } else if (type === 'expense') {
+                expenses[description] = (expenses[description] || 0) + amount;
+                if (description === 'payments') {
+                    expenses.payments = (expenses.payments || 0) + amount;
+                }
+                expenseTrackingChart.data.labels = Object.keys(expenses);
+                expenseTrackingChart.data.datasets[0].data = Object.values(expenses);
+                expenseTrackingChart.update();
+
+                spent += amount;
+                budgetOverviewChart.data.datasets[0].data = [spent, monthlyBudget - spent];
+                budgetOverviewChart.update();
+
+                payments.push({ amount, description });
+                updatePayments();
+            } else if (type === 'loan') {
+                loans += amount;
+                document.getElementById('loans').textContent = `$${loans}`;
+                accountSummaryChart.data.datasets[0].data = [bankAccounts, creditCards, loans, investments];
+                accountSummaryChart.update();
+            } else if (type === 'saving') {
+                if (description === 'emergency-fund') {
+                    emergencyFund.current += amount;
+                    updateProgressBars();
+                } else if (description === 'vacation-fund') {
+                    vacationFund.current += amount;
+                    updateProgressBars();
+                }
+            }
+
+            transactionHistory.push({ type, amount, description });
+            updateHistory();
+
+            document.getElementById('transaction-form').reset();
+        });
+    </script>
+
+
+
+
+
+</body>
+</html>

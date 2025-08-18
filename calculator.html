@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        /* Styles for Calculator Page */
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-color: #032541;
+            height: 100vh;
+        }
+
+        .calculator-display {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            font-size: 2rem;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            max-width: 400px;
+        }
+
+        .btn {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #f9f9f9;
+        }
+
+        .operator {
+            background-color: #f9f9f9;
+        }
+
+        .operator:hover {
+            background-color: #e0e0e0;
+        }
+
+        .equal {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .equal:hover {
+            background-color: #45a049;
+        }
+
+        .clear {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .nav-link {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div id="calculator-display" class="calculator-display" style="color: #032541;"></div>
+        <div class="calculator-buttons">
+            <button class="btn calc-button" onclick="appendNumber('7')">7</button>
+            <button class="btn calc-button" onclick="appendNumber('8')">8</button>
+            <button class="btn calc-button" onclick="appendNumber('9')">9</button>
+            <button class="btn calc-button operator" onclick="appendOperator('/')">/</button>
+            <button class="btn calc-button" onclick="appendNumber('4')">4</button>
+            <button class="btn calc-button" onclick="appendNumber('5')">5</button>
+            <button class="btn calc-button" onclick="appendNumber('6')">6</button>
+            <button class="btn calc-button operator" onclick="appendOperator('*')">*</button>
+            <button class="btn calc-button" onclick="appendNumber('1')">1</button>
+            <button class="btn calc-button" onclick="appendNumber('2')">2</button>
+            <button class="btn calc-button" onclick="appendNumber('3')">3</button>
+            <button class="btn calc-button operator" onclick="appendOperator('-')">-</button>
+            <button class="btn calc-button" onclick="appendNumber('0')">0</button>
+            <button class="btn calc-button" onclick="appendDot('.')">.</button>
+            <button class="btn calc-button operator" onclick="appendOperator('+')">+</button>
+            <button class="btn calc-button equal" onclick="calculateResult()">=</button>
+            <button class="btn calc-button clear" onclick="clearDisplay()">C</button>
+        </div>
+        <a style="color: rgb(248, 248, 248);" href="dashboard.html" class="nav-link">Back to Dashboard</a>
+      
+
+    </div>
+
+    <script>
+        // Calculator Functions
+        let display = document.getElementById('calculator-display');
+        let currentInput = '';
+        let operator = '';
+        let previousInput = '';
+
+        const appendNumber = (number) => {
+            currentInput += number;
+            updateDisplay();
+        };
+
+        const appendOperator = (op) => {
+            if (currentInput === '') return;
+            if (operator !== '') {
+                calculateResult();
+            }
+            operator = op;
+            previousInput = currentInput;
+            currentInput = '';
+            updateDisplay();
+        };
+
+        const appendDot = () => {
+            if (currentInput.includes('.')) return;
+            currentInput += '.';
+            updateDisplay();
+        };
+
+        const clearDisplay = () => {
+            currentInput = '';
+            operator = '';
+            previousInput = '';
+            updateDisplay();
+        };
+
+        const calculateResult = () => {
+            if (operator === '' || currentInput === '') return;
+            let result;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            switch (operator) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    result = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentInput = result.toString();
+            operator = '';
+            previousInput = '';
+            updateDisplay();
+        };
+
+        const updateDisplay = () => {
+            display.textContent = currentInput;
+        };
+    </script>
+</body>
+</html>

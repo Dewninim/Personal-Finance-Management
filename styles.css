@@ -1,0 +1,298 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #1b1549;
+    background-color: #1b2928;
+    margin: 0;
+}
+
+/* Background image for the home page */
+body {
+    background-image: url('images/Colombo\,\ Srilanka.jpeg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-bottom: 600px;
+}
+
+/* Background image for the dashboard */
+.dashboard-background {
+    background-image: url('images/GettyImages-1936794592-1536x1002.jpg.webp'); /* Path to your background image */
+    background-size: cover; /* Make the image cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    height: 500vh; /* Ensure the body covers the full viewport height */
+    margin-bottom: 1000px; /* Remove default margins */
+}
+
+
+/* Background image for the transactions page */
+.transactions-background {
+    background-image: url('images/Relief\ Map\ of\ India\ and\ Sri\ Lanka.jpeg.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-bottom: 600x;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #1b1549;
+    background-color: #1b2928; /* Light Teal */
+}
+
+/* Header styling */
+header {
+    background-color: #00796b; /* Teal */
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    color: #fafafa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Button styling */
+.btn, .btn-primary {
+    background-color: #004d40; /* Dark Teal */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.btn:hover, .btn-primary:hover {
+    background-color: #00796b; /* Teal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Main content styling */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Summary section styling */
+.summary {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.summary-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    width: calc(50% - 0.5rem); /* Adjust width for two columns */
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-item h2 {
+    color: #00796b; /* Teal */
+    margin-bottom: 0.5rem;
+}
+
+.summary-item p, .summary-item ul {
+    color: #141513;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .summary-item {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+
+
+
+
+/* Hero section styling */
+.hero {
+    background: url('hero-background.jpg') no-repeat center center/cover; /* Add a background image */
+    color: #15186d;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Features section styling */
+.features {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.features h2 {
+    color: #004d40; /* Dark Teal */
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.feature-item h3 {
+    color: #00796b; /* Teal */
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    color: #141513;
+}
+
+/* Call to Action (CTA) section */
+.cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta h2 {
+    color: #130f52; /* Dark Teal */
+    margin-bottom: 1rem;
+}
+
+/* Form styling */
+form {
+    max-width: 400px;
+    margin: auto;
+    background: #ffffff72;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #00796b; /* Teal */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #004d40; /* Dark Teal */
+}
+
+/* Transaction item styling */
+.transaction-item {
+    background: #ffffff81;
+    border-radius: 8px;
+    width: 600px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-item h2 {
+    color: #00796b; /* Teal */
+    margin-bottom: 0.5rem;
+}
+
+.transaction-item p {
+    color: #141513;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .feature-item, .transaction-item {
+        margin: 1rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .btn, .btn-primary {
+        width: 100%;
+    }
+}
